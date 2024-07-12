@@ -5,21 +5,6 @@ import { AppRouter } from './providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense } from 'react';
-import { useTranslation } from 'react-i18next';
-
-function MyComponent() {
-  const { t, i18n } = useTranslation();
-
-  const toggle = async () => {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-  };
-
-  return (
-    <button onClick={toggle}>
-      <div>{t('перевод')}</div>
-    </button>
-  );
-}
 
 const App = () => {
   const { theme } = useTheme();
@@ -31,7 +16,6 @@ const App = () => {
         <Navbar />
         <div className="content-page ">
           <Sidebar />
-          <MyComponent />
           <AppRouter />
         </div>
       </Suspense>
